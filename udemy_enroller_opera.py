@@ -80,6 +80,7 @@ def getTutorialBarLinks(url):
 
     return courses
 
+
 def udemyLogin(email_text, password_text):
     driver.get("https://www.udemy.com/join/login-popup/")
 
