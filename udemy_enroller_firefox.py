@@ -4,7 +4,6 @@
 # Make sure you have cleared all saved payment details on your Udemy account &
 # the browser! For firefox you need to manually install the driver on
 # Arch Linux (sudo pacman -S geckodriver). Untested on other platforms.
-
 import time
 from multiprocessing.dummy import Pool
 
