@@ -16,6 +16,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+
 yaml = YAML()
 with open("settings.yaml") as f:
     settings = yaml.load(f)
@@ -41,8 +42,7 @@ def getUdemyLink(url):
 
     soup = BeautifulSoup(response.content, "html.parser")
 
-    linkForUdemy = soup.find("span",
-                             class_="rh_button_wrapper").find("a").get("href")
+    linkForUdemy = soup.find("span", class_="rh_button_wrapper").find("a").get("href")
 
     return linkForUdemy
 
@@ -74,7 +74,9 @@ def getTutorialBarLinks(url):
 
     x = 0
     for _ in range(12):
-        if categories:  # If the categories are specified, then only add them if the category is in `categories`
+        if (
+            categories
+        ):  # If the categories are specified, then only add them if the category is in `categories`
             if links[x + 2].text in categories:
                 courses.append(links[x].get("href"))
         else:  # If the categories aren't specified, just add them
@@ -102,19 +104,25 @@ def redeemUdemyCourse(url):
 
     # Enroll Now 1
     element_present = EC.presence_of_element_located(
-        (By.XPATH, "//button[@data-purpose='buy-this-course-button']"))
+        (By.XPATH, "//button[@data-purpose='buy-this-course-button']")
+    )
     WebDriverWait(driver, 10).until(element_present)
 
     udemyEnroll = driver.find_element_by_xpath(
-        "//button[@data-purpose='buy-this-course-button']")  # Udemy
+        "//button[@data-purpose='buy-this-course-button']"
+    )  # Udemy
     udemyEnroll.click()
 
     # Enroll Now 2
-    element_present = EC.presence_of_element_located((
-        By.XPATH,
-        ('//*[@class="udemy pageloaded"]/div[1]/div[2]/div/div/div/div[2]/'
-         'form/div[2]/div/div[4]/button'),
-    ))
+    element_present = EC.presence_of_element_located(
+        (
+            By.XPATH,
+            (
+                '//*[@class="udemy pageloaded"]/div[1]/div[2]/div/div/div/div[2]/'
+                "form/div[2]/div/div[4]/button"
+            ),
+        )
+    )
     WebDriverWait(driver, 10).until(element_present)
 
     # Check if zipcode exists before doing this
@@ -122,8 +130,7 @@ def redeemUdemyCourse(url):
         # Assume sometimes zip is not required because script was originally
         # pushed without this
         try:
-            zipcode_element = driver.find_element_by_id(
-                "billingAddressSecondaryInput")
+            zipcode_element = driver.find_element_by_id("billingAddressSecondaryInput")
             zipcode_element.send_keys(zipcode)
 
             # After you put the zip code in, the page refreshes itself and
@@ -133,8 +140,10 @@ def redeemUdemyCourse(url):
             pass
 
     udemyEnroll = driver.find_element_by_xpath(
-        ('//*[@class="udemy pageloaded"]/div[1]/div[2]/div/'
-         'div/div/div[2]/form/div[2]/div/div[4]/button')
+        (
+            '//*[@class="udemy pageloaded"]/div[1]/div[2]/div/'
+            "div/div/div[2]/form/div[2]/div/div[4]/button"
+        )
     )  # Udemy
     udemyEnroll.click()
 
@@ -147,11 +156,9 @@ def main_function():
     while True:
 
         print("Please Wait: Getting the course list from tutorialbar.com...")
-        print("Page: " + str(page) + ", Loop run count: " +
-              str(loop_run_count))
+        print("Page: " + str(page) + ", Loop run count: " + str(loop_run_count))
 
-        url = "https://www.tutorialbar.com/all-courses/" + "page/" + str(
-            page) + "/"
+        url = "https://www.tutorialbar.com/all-courses/" + "page/" + str(page) + "/"
         courses = getTutorialBarLinks(url)
 
         udemyLinks = gatherUdemyCourseLinks(courses)
@@ -169,13 +176,13 @@ def main_function():
             except BaseException as e:
                 print(
                     "Unable to enroll for this course either because you have already claimed it or the browser "
-                    "window has been closed!")
+                    "window has been closed!"
+                )
 
         page = page + 1
         loop_run_count = loop_run_count + 1
 
-        print(
-            "Moving on to the next page of the course list on tutorialbar.com")
+        print("Moving on to the next page of the course list on tutorialbar.com")
 
 
 main_function()
