@@ -1,23 +1,7 @@
 # Automatic Udemy Course Enroller: GET PAID COURSES for FREE! (Legally!)
 
-Do you want to LEARN NEW STUFF for FREE? Don't worry, with the power of
-web-scraping and automation, this script will find the necessary Udemy Coupons
-&amp; enroll you for PAID UDEMY COURSES, ABSOLUTELY FREE!
-
 The code scrapes course links and coupons from
 [tutorialbar.com](https://tutorialbar.com)
-
-In case of any bugs or issues, **feel free to ping me on
-[LinkedIn](https://www.linkedin.com/in/aapatre/) or
-[Twitter](https://twitter.com/Antariksh_Patre)**
-
-Also, don't forget to **Fork & Star the repository if you like it!**
-
-**_Video Proof:_**
-
-[![Udemy Auto-Course-Enroller](https://img.youtube.com/vi/IW8CCtv2k2A/0.jpg)](https://www.youtube.com/watch?v=IW8CCtv2k2A "GET PAID UDEMY Courses for FREE, Automatically with this Python Script!")
-
----
 
 ## **_Disclaimer & WARNINGS:_**
 
