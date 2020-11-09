@@ -5,7 +5,7 @@ from core import TutorialBarScraper
 from core import UdemyActions
 
 
-def redeem_courses(driver: WebDriver, settings: Settings):
+def redeem_courses(driver: WebDriver, settings: Settings,choice):
     """
     Method to scrape courses from tutorialbar.com and enroll in them on udemy
 
@@ -15,7 +15,7 @@ def redeem_courses(driver: WebDriver, settings: Settings):
     udemy_actions = UdemyActions(driver, settings)
     udemy_actions.login()  # login once outside while loop
     while True:
-        udemy_course_links = tb_scraper.run()
+        udemy_course_links = tb_scraper.run(choice)
 
         for course_link in udemy_course_links:
             try:
