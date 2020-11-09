@@ -34,7 +34,8 @@ class TutorialBarScraper:
 
         for counter, course in enumerate(udemy_links):
             print(f"Received Link {counter + 1} : {course}")
-
+        print('\n\n')
+        print(f'Links in list format: {udemy_links}\n\n')
         return udemy_links
 
     def is_first_loop(self) -> bool:
