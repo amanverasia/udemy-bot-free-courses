@@ -7,7 +7,19 @@ from core import Settings
 from core.utils import redeem_courses
 
 settings = Settings()
-
+print('1. IT software')
+print('2. Development')
+print('3. Finance Accounting')
+print('4. Design')
+print('5. Business')
+print('6. Marketing')
+print('7. Health and Fitness')
+print('8. Office Productivity')
+print('9. Photography')
+print('10. Personal Development')
+print('11. Teaching and Academics')
+print('99. All Courses')
+choice = input('Please select what category you want? :')
 chrome_options = None
 if settings.is_ci_build:
     from selenium.webdriver.chrome.options import Options
@@ -31,7 +43,7 @@ driver.maximize_window()
 # in the maximized layout
 
 try:
-    redeem_courses(driver, settings)
+    redeem_courses(driver, settings, choice)
     if settings.is_ci_build:
         print("We have attempted to subscribe to 1 udemy course")
         print("Ending test")
