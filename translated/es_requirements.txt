@@ -1,5 +1,5 @@
-requests
-beautifulsoup4
+solicitudes
+sopa hermosa4
 ruamel.yaml
 selenium
-webdriver-manager
+gestor webdriver-
