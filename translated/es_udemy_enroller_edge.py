@@ -1,26 +1,26 @@
-# Install all the requirements by running requirements.py in IDLE or follow the alternate instructions at
-# https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/ Make sure you have
-# cleared all saved payment details on your Udemy account & the browser!
-from selenium import webdriver
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
+# Instalar todos los requisitos ejecutando requirements.py en IDLE o seguir las instrucciones alternativas en
+# https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/ Asegúrese de que tiene
+# ¡Se han borrado todos los detalles de pago guardados en tu cuenta de Udemy y el navegador!
+desde selenium importar webdriver
+desde webdriver_manager.microsoft importar EdgeChromiumDriverManager
 
-from core import Settings
-from core.utils import redeem_courses
+desde la configuración principal de importación
+desde core.utils importar redeem_courses
 
 settings = Settings()
 
 driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
-# Maximizes the browser window since Udemy has a responsive design and the code only works
+# Maximiza la ventana del navegador ya que Udemy tiene un diseño receptivo y el código sólo funciona
 driver.maximize_window()
-# in the maximized layout
+# en el diseño maximizado
 
-try:
+intentar:
     redeem_courses(driver, settings)
-except KeyboardInterrupt:
-    print("Exiting the script")
-except Exception as e:
+excepto KeyboardInterrupt:
+    print("Salir del script")
+excepto excepción como:
     print("Error: {}".format(e))
-finally:
-    print("Closing browser")
+finalmente:
+    print("Cerrando navegador")
     driver.quit()
