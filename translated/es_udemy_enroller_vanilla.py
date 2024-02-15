@@ -1,36 +1,36 @@
-# Install all the requirements by running requirements.py in IDLE or follow the alternate instructions at
-# https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/ Make sure you have
-# cleared all saved payment details on your Udemy account & the browser!
-from selenium import webdriver
+# Instalar todos los requisitos ejecutando requirements.py en IDLE o seguir las instrucciones alternativas en
+# https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/ Asegúrese de que tiene
+# ¡Se han borrado todos los detalles de pago guardados en tu cuenta de Udemy y el navegador!
+desde selenium importar webdriver
 
-from core import Settings
-from core.utils import redeem_courses
+desde la configuración principal de importación
+desde core.utils importar redeem_courses
 
 settings = Settings()
-"""### **Enter the path/location of your webdriver**
-By default, the webdriver for Microsoft Edge browser has been chosen in the code below.
+"""### **Introduce la ruta/ubicación de tu webdriver**
+De forma predeterminada, el controlador web para el navegador Microsoft Edge ha sido elegido en el siguiente código.
 
-Also, enter the location of your webdriver.
+Además, introduzca la ubicación de su conductor web.
 """
 
-# On windows you need the r (raw string) in front of the string to deal with backslashes.
-# Replace this string with the path for your webdriver
+# En las ventanas necesita la r (cadena cruda) delante de la cadena para tratar con barras invertidas.
+# Reemplaza esta cadena con la ruta de tu webdriver
 path = r"..location\msedgedriver.exe"
 driver = webdriver.Edge(
-    path
-)  # webdriver.Chrome(path) for Google Chrome, webdriver.Firefox(path) for Mozilla Firefox, webdriver.Edge(
-# path) for Microsoft Edge, webdriver.Safari(path) for Apple Safari
+    ruta
+) # webdriver.Chrome(path) para Google Chrome, webdriver.Firefox(path) para Mozilla Firefox, webdriver.Edge(
+# ruta) para Microsoft Edge, webdriver.Safari(path) para Apple Safari
 
-# Maximizes the browser window since Udemy has a responsive design and the code only works
+# Maximiza la ventana del navegador ya que Udemy tiene un diseño receptivo y el código sólo funciona
 driver.maximize_window()
-# in the maximized layout
+# en el diseño maximizado
 
-try:
+intentar:
     redeem_courses(driver, settings)
-except KeyboardInterrupt:
-    print("Exiting the script")
-except Exception as e:
+excepto KeyboardInterrupt:
+    print("Salir del script")
+excepto excepción como:
     print("Error: {}".format(e))
-finally:
-    print("Closing browser")
+finalmente:
+    print("Cerrando navegador")
     driver.quit()
