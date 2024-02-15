@@ -1,148 +1,148 @@
-from multiprocessing.dummy import Pool
-from typing import List
+de importación multiprocessing.dummy Pool
+desde la lista de importación
 
-import requests
-from bs4 import BeautifulSoup
+importar solicitudes
+desde bs4 importar BeautifulSoup
 
 
 class TutorialBarScraper:
 	"""
-	Contains any logic related to scraping of data from tutorialbar.com
+	Contiene cualquier lógica relacionada con la eliminación de datos de tutorialbar.com
 	"""
 
 	DOMAIN = "https://www.tutorialbar.com"
 
 	def __init__(self):
 		self.current_page = 0
-		self.last_page = None
-		self.links_per_page = 12
+		self.last_page = Ninguna
+		self.links_por_página = 12
 
 	def run(self, choice) -> List:
 		"""
-		Runs the steps to scrape links from tutorialbar.com
+		Ejecuta los pasos para raspar los enlaces de tutorialbar.com
 
-		:return: list of udemy coupon links
+		Lista :return: de enlaces de cupón de udemy
 		"""
 		
-		print(type(choice))
-		print(choice)
-		self.current_page += 1
-		#print("Please Wait: Getting the course list from tutorialbar.com...")
+		print(tipo(elección))
+		impresión(elección)
+		página actual + = 1
+		#print("Por favor espera: Obteniendo la lista de cursos de tutorialbar.com...")
 		if(choice=='1'):
 			
-			course_links = self.get_course_links(choice,
+			course_links = self.get_course_links(elección,
 				f"{self.DOMAIN}/category/it-software/page/{self.current_page}/"
 			)
-		elif(choice=='2'):
-			course_links = self.get_course_links(choice,
-				f"{self.DOMAIN}/category/development/page/{self.current_page}/"
+		elif(elección=='2'):
+			course_links = self.get_course_links(elección,
+				f"{self.DOMAIN}/categoría/desarrollo/página/{self.current_page}/"
 			)
-		elif(choice=='3'):
-			course_links = self.get_course_links(choice,
+		elif(elección=='3'):
+			course_links = self.get_course_links(elección,
 				f"{self.DOMAIN}/category/finance-accounting/page/{self.current_page}/"
 			)
 		elif(choice=='4'):
-			course_links = self.get_course_links(choice,
+			course_links = self.get_course_links(elección,
 				f"{self.DOMAIN}/category/design/page/{self.current_page}/"
 			)
-		elif(choice=='5'):
-			course_links = self.get_course_links(choice,
-				f"{self.DOMAIN}/category/business/page/{self.current_page}/"
+		elif(elección=='5'):
+			course_links = self.get_course_links(elección,
+				f"{self.DOMAIN}/categoría/negocio/página/{self.current_page}/"
 			)
-		elif(choice=='6'):
-			course_links = self.get_course_links(choice,
+		elif(elección=='6'):
+			course_links = self.get_course_links(elección,
 				f"{self.DOMAIN}/category/marketing/page/{self.current_page}/"
 			)
 		elif(choice=='7'):
-			course_links = self.get_course_links(choice,
-				f"{self.DOMAIN}/category/health-fitness/page/{self.current_page}/"
+			course_links = self.get_course_links(elección,
+				f"{self.DOMAIN}/categoría/fitness/página/{self.current_page}/"
 			)
-		elif(choice=='8'):
-			course_links = self.get_course_links(choice,
+		elif(elección=='8'):
+			course_links = self.get_course_links(elección,
 				f"{self.DOMAIN}/category/office-productivity/page/{self.current_page}/"
 			)
-		elif(choice=='9'):
-			course_links = self.get_course_links(choice,
-				f"{self.DOMAIN}/category/photography/page/{self.current_page}/"
+		elif(elección=='9'):
+			course_links = self.get_course_links(elección,
+				f"{self.DOMAIN}/categoría/fotografia/página/{self.current_page}/"
 			)
-		elif(choice=='10'):
-			course_links = self.get_course_links(choice,
-				f"{self.DOMAIN}/category/personal-development/page/{self.current_page}/"
+		elif(elección=='10'):
+			course_links = self.get_course_links(elección,
+				f"{self.DOMAIN}/category/personal-development/{self.current_page}/"
 			)
 		elif(choice=='11'):
-			course_links = self.get_course_links(choice,
+			course_links = self.get_course_links(elección,
 				f"{self.DOMAIN}/category/teaching-academics/page/{self.current_page}/"
 			)
 
 
 
 
-		else:
-			course_links = self.get_course_links(choice,
-				f"{self.DOMAIN}/all-courses/page/{self.current_page}/"
+		no:
+			course_links = self.get_course_links(elección,
+				f"{self.DOMAIN}/todos-cursos/página/{self.current_page}/"
 			)
-		print(f"Page: {self.current_page} of {self.last_page} scraped\n")
-		udemy_links = self.gather_udemy_course_links(course_links)
+		impresión(f"Página: {self.current_page} de {self.last_page} raspado\n")
+		udemy_links = self.Today_udemy_course_links(course_links)
 
-		# for counter, course in enumerate(udemy_links):
-		# 	print(f"Received Link {counter + 1} : {course}")
+		# para el contador, curso en enumerate(udemy_links):
+		# print(f"Link recibido {counter + 1} : {course}")
 		#  print('\n\n')
-		#  print(f'Links in list format: {udemy_links}\n\n')
-		return udemy_links
+		# print(f'Links in list format: {udemy_links}\n\n')
+		devolver enlaces udemy_
 
 	def is_first_loop(self) -> bool:
 		"""
-		Simple check to see if this is the first time we have executed
+		Comprobación simple para ver si es la primera vez que ejecutamos
 
 		:return: boolean showing if this is the first loop of the script
 		"""
-		return self.current_page == 1
+		devolver self.current_page == 1
 
-	def get_course_links(self,choice, url: str) -> List:
+	def get_course_links(self,choice, url: str) -> Lista:
 		"""
-		Gets the url of pages which contain the udemy link we want to get
+		Obtiene la url de las páginas que contienen el enlace udemy que queremos obtener
 
-		:param str url: The url to scrape data from
+		:param str url: La url de la que scrape los datos
 		:return: list of pages on tutorialbar.com that contain Udemy coupons
 		"""
-		response = requests.get(url=url)
+		respuesta = requests.get(url=url)
 		soup = BeautifulSoup(response.content, "html.parser")
 		if(choice=='99'):
 			links = soup.find("div", class_="rh-post-wrapper").find_all("a")
-		else:
+		no:
 			links = soup.find("div", class_="main-side clearfix").find_all("a")
-		self.last_page = links[-2].text
-		courses = []
+		self.last_page = enlaces[-2].text
+		cursos = []
 
 		x = 0
 		for _ in range(self.links_per_page):
-			courses.append(links[x].get("href"))
+			courses.append(enlaces[x].get("href"))
 			x += 3
 
-		return courses
+		regresar cursos
 
 	@staticmethod
 	def get_udemy_course_link(url: str) -> str:
 		"""
-		Gets the udemy course link
+		Obtiene el enlace de curso de udemy
 
-		:param str url: The url to scrape data from
-		:return: Coupon link of the udemy course
+		:param str url: La url de la que scrape los datos
+		:return: enlace de cupón del curso de udemy
 		"""
-		response = requests.get(url=url)
+		respuesta = requests.get(url=url)
 		soup = BeautifulSoup(response.content, "html.parser")
 		udemy_link = soup.find("span", class_="rh_button_wrapper").find("a").get("href")
-		return udemy_link
+		devolver udemy_link
 
-	def gather_udemy_course_links(self, courses: List[str]) -> List:
+	def collect_udemy_course_links(self, courses: List[str]) -> Lista:
 		"""
-		Threaded fetching of the udemy course links from tutorialbar.com
+		Búsqueda en hilo de los enlaces del curso udemy desde tutorialbar.com
 
-		:param list courses: A list of tutorialbar.com course links we want to fetch the udemy links for
-		:return: list of udemy links
+		:param list courses: Una lista de enlaces de curso de tutorialbar.com que queremos obtener los enlaces de udemy para
+		Lista :return: de enlaces de udemy
 		"""
 		thread_pool = Pool()
-		results = thread_pool.map(self.get_udemy_course_link, courses)
+		resultados = thread_pool.map(self.get_udemy_course_link, cursos)
 		thread_pool.close()
 		thread_pool.join()
-		return results
+		devolver resultados
