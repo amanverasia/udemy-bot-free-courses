@@ -1,34 +1,34 @@
-# Changelog
+# Cambios
 
-All notable changes to this project will be documented in this file.
+Todos los cambios notables en este proyecto serán documentados en este fichero.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+El formato está basado en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+y este proyecto se adhiere a
+[Versión Semántica](https://semver.org/spec/v2.0.0.html).
 
 ## [0.2] - 2020-11-05
 
-### Added
+### Añadido
 
-- Generate settings.yaml on first execution of script through cli prompts
+- Genera settings.yaml en la primera ejecución del script a través de peticiones de cli
 - Add configuration to choose the languages you would like your free courses to
   be in
-- Started adding CI integrations
+- Comenzó añadiendo integraciones de CI
 
-### Changed
+### Cambiado
 
-- Close browser on script finish or user hitting ctrl-c
-- Extracted core logic for tutorialbar and udemy to reduce duplication
+- Cerrar navegador al terminar el script o al pulsar el usuario ctrl-c
+- Extraído la lógica central para tutorialbar y udemy para reducir la duplicación
 
 ## [0.1] - 2020-10-09
 
-### Added
+### Añadido
 
-- This is our first pre release, marked as such because Firefox geckodriver
-  auto-installation is not working properly yet. You can use the download the
-  zip, extract, install the requirement and get a working version of this
-  project running locally. Suitable for users who are not looking forward to
-  contribute.
+- Esta es nuestra primera versión previa, marcada como tal porque la instalación automática de Firefox geckodriver
+  aún no funciona correctamente. Puede utilizar la descarga de
+  zip, extraer, instalar el requisito y obtener una versión funcional de este proyecto
+  funcionando localmente. Adecuado para usuarios que no esperan que
+  contribuya.
 
 [0.2]: https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/releases/tag/v0.2
 
