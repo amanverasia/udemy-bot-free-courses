@@ -4,7 +4,7 @@
 desde selenium importar webdriver
 desde webdriver_manager.microsoft importar IEDriverManager
 
-desde la configuración principal de importación
+from core import Settings
 desde core.utils importar redeem_courses
 
 settings = Settings()
