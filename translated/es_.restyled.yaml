@@ -12,17 +12,17 @@ statuses:
   differences: true
   no_differences: true
   error: true
-request_review: none
+request_review: ninguno
 labels: [ ]
 ignore_labels:
-  - restyled-ignore
-restylers_version: stable
+  - ignorar-reposar
+restylers_version: estable
 commit_template: |
-  style(${restyler.name}): apply code style
+  estilo(${restyler.name}): aplicar estilo de código
 restylers:
-  - black
+  - negro
   - 
     isort:
       arguments:
-        - "--profile"
-        - "black"
+        - "--perfil"
+        - "negro"
