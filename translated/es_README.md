@@ -1,65 +1,65 @@
-# Automatic Udemy Course Enroller: GET PAID COURSES for FREE! (Legally!)
+# Inscripción automática de cursos de Udemy: ¡COURSOS PAID GRATIS! (¡Legalmente!)
 
-The code scrapes course links and coupons from
+El código elimina los enlaces y cupones del curso de
 [tutorialbar.com](https://tutorialbar.com)
 
-## **_Disclaimer & WARNINGS:_**
+## **_Descargo de responsabilidad y AVISO:_**
 
 1. **IMPORTANT:** Make sure you **clear all saved Debit/Credit Card or any other
    saved payment info from your Browser & your Udemy account** before using the
    script!
-2. **Use** this ONLY for **Educational Purposes!** By using this code you agree
-   that **I'm not responsible for any kind of trouble** caused by the code.
-3. **Make sure web-scraping is legal in your region.**
-4. This is **NOT a hacking script**, i.e., it can't enroll you for a specific
-   course! Instead it finds courses that provide coupon links to make the
+2. **Usa** esto SOLO para \*\*propósitos educativos! \* Al usar este código aceptas
+   que **no soy responsable de ningún tipo de problema** causado por el código.
+3. **Asegúrate de que el raspado de la web sea legal en tu región.**
+4. Esto **NO es un script de hacking**, es decir, ¡no puede inscribirte para un curso específico
+   ! Instead it finds courses that provide coupon links to make the
    transaction free and then LEGALLY enroll you to the course!
 
 ***
 
-## Requirements:
+## Requisitos:
 
-### How to Install the Requirements?
+### ¿Cómo instalar los requisitos?
 
-**Required Python version:** [Python 3.8+](https://www.python.org/downloads/)
+**Versión de Python requerida:** [Python 3.8+](https://www.python.org/downloads/)
 
-**You must have pip installed. Please look up how to install pip in your OS.**
+**Debes tener pip instalado. Por favor, busca cómo instalar pip en tu sistema operativo**
 
-Download a release of this project or clone the repository then navigate to the
-folder where you placed the files on. Type `pip install -r requirements.txt` to
-get all the requirements installed in one go.
+Descargue una versión de este proyecto o clone el repositorio y luego vaya a la carpeta
+donde haya colocado los archivos. Escribe `pip install -r requirements.txt` para obtener
+todos los requisitos instalados de una vez.
 
-- **Webdrivers are now automatically installed! But here are some links in case
-  you are using the vanilla script or the Safari Browser:**
+- **¡Los controladores web ahora se instalan automáticamente! Pero aquí hay algunos enlaces por si
+  estás usando el script vanilla o el navegador Safari:**
 
-* Edge- https\://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+* Edge- https\://developer.microsoft.com/es-us/microsoft-edge/tools/webdriver/
 * Chrome- https\://chromedriver.chromium.org/
 * Firefox- https\://github.com/mozilla/geckodriver/releases/
 * Safari-
   https\://developer.apple.com/documentation/webkit/about_webdriver_for_safari/
 * Opera- https\://github.com/operasoftware/operachromiumdriver/releases
 * Internet Explorer-
-  [Find it on your own accord](https://www.selenium.dev/downloads/)
+  [Encuéntralo por ti mismo](https://www.selenium.dev/downloads/)
 
-**Note:** Make sure that the driver version matches your browser.
+**Nota:** Asegúrate de que la versión del controlador coincide con tu navegador.
 
 ***
 
-## Instructions
+## Instrucciones
 
-1 . Make sure to install all the requirements above.
+1 . Asegúrese de instalar todos los requisitos anteriores.
 
-- Run the script and the cli will guide you through the settings required
-- Otherwise you can rename the following file
-  [sample_settings.yaml](sample_settings.yaml) to **settings.py** and edit it
-  using a text editor and insert your **Udemy registered email in the email
-  section**, your **Udemy password in the password section**, and the **ZIP Code
-  in the zipcode section (if you reside in the United States or any other region
-  where Udemy asks for ZIP Code as Billing Info, else enter a random number)**.
+- Ejecute el script y el cli le guiará a través de la configuración requerida
+- De lo contrario, puedes renombrar el siguiente archivo
+  [sample_settings.yaml](sample_settings.yaml) a **ajustes. y** y edítala
+  usando un editor de texto e inserta tu \*\*correo electrónico registrado de Udemy en la sección
+  , tu **contraseña de Udemy en la sección de contraseña**, y el **código postal
+  en la sección de código postal (si resides en los Estados Unidos o en cualquier otra región
+  donde Udemy solicita el código postal como información de facturación, si no, introduzca un número aleatorio)**.
 
-2 . Choose the appropriate file for your browser (from the list below):
+2 . Elija el archivo apropiado para su navegador (de la lista de abajo):
 
-- **Tested and works perfectly:**
+- **Probado y funciona perfectamente:**
 
   - Chrome:
     [udemy_enroller_chrome.py](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/master/udemy_enroller_chrome.py)
@@ -68,104 +68,104 @@ get all the requirements installed in one go.
   - Edge:
     [udemy_enroller_edge.py](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/master/udemy_enroller_edge.py)
 
-- **Has issues:**
+- **Tiene problemas:**
 
   - Firefox:
     [udemy_enroller_firefox.py(requires manual driver installation)](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/master/udemy_enroller_firefox.py)
 
-- **Untested:**
+- **No probado:**
 
   - Opera:
     [udemy_enroller_opera.py](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/master/udemy_enroller_opera.py)
 
-- **Experimentation or other Browsers (especially Safari):**
+- **Experimentación u otros navegadores (especialmente Safari):**
 
   - [aka the old bot- requires manual driver setup](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/master/udemy_enroller_vanilla.py)
 
-- **Use at your own risk:**
+- **Úsalo bajo tu propio riesgo:**
   - Vanilla
-  - Internet Explorer:
+  - Explorador de Internet:
     [udemy_enroller_internet_explorer.py](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/master/udemy_enroller_internet_explorer.py)
 
-3 . Run the chosen script in terminal like so:
+3 . Ejecuta el script elegido en el terminal así:
 `python udemy_enroller_firefox.py`
 
-4 . The bot starts scraping the course links from the first **All Courses** page
-on [Tutorial Bar](https://www.tutorialbar.com/all-courses/page/1) and starts
-enrolling you to Udemy courses. After it has enrolled you to courses from the
-first page, it then moves to the next Tutorial Bar page and the cycle continues.
+4 . El bot comienza a raspar los enlaces del curso de la primera página de **Todos los cursos**
+en [Tutorial Bar](https://www.tutorialbar.com/all-courses/page/1) y comienza
+inscríbete a cursos de Udemy. Después de que te haya inscrito a cursos desde la primera página
+, luego se mueve a la siguiente página de Barra Tutorial y el ciclo continúa.
 
-- Stop the script by pressing ctrl+c in terminal to stop the enrollment process.
+- Detenga el script presionando ctrl+c en la terminal para detener el proceso de inscripción.
 
 ***
 
 ## FAQs
 
-### 1. Can I get a specific course for free with this script?
+### 1. ¿Puedo obtener un curso específico de forma gratuita con este script?
 
 Unfortunately no, but let me assure you that you may be lucky enough to get a
 particular course for free when the instructor posts it's coupon code in order
-to promote it. Also, over time you would build a library of courses by running
-the script often and have all the required courses in your collection. In fact,
+to promote it. Además, con el tiempo crearás una biblioteca de cursos ejecutando
+el script a menudo y teniendo todos los cursos necesarios en tu colección. In fact,
 I made this course after completing a
 [Python automation course](https://www.udemy.com/course/automate/) and selenium,
 which of course I got for free! :)
 
-### 2. How does the bot work?
+### 2. ¿Cómo funciona el bot?
 
-The bot retrieves coupon links from Tutorial Bar's list to cut the prices and
-then uses Selenium's Browser automation features to login and enroll to the
-courses. Think of it this way: Epic Games & other clients like Steam provide you
+El bot recupera los enlaces de cupón de la lista de Tutorial Bar para reducir los precios y
+luego utiliza las características de automatización del navegador de Selenium para iniciar sesión y matricularse a los cursos
+. Think of it this way: Epic Games & other clients like Steam provide you
 a handful of games each week, for free; Only in this case, we need a coupon code
 to make those courses free.
 
-### 3. How frequently should you run the script?
+### 3. ¿Con qué frecuencia debería ejecutar el script?
 
-Daily, at least once! If you are using it for the first time, I recommend that
-you allow it to scrape through all pages on Tutorial Bar (might take a few hours
-since there are >500 pages on the site). I've painstakingly amassed over 4000
-courses in the last four years! And out of those 4000, I've only paid for 4 of
-these courses.
+¡Diariamente, al menos una vez! Si lo estás usando por primera vez, Recomiendo que
+le permita raspar todas las páginas de la barra Tutorial (puede tardar unas horas
+ya que hay >500 páginas en el sitio). I've painstakingly amassed over 4000
+courses in the last four years! Y de esos 4000, solo he pagado por 4 de
+estos cursos.
 
-So, a mere **0.001%** of courses are **actually paid** in my collection!
-Thankfully, you can get more than what I gathered in 4 years, in a matter of
-weeks! 🙌🏻
+Así que, ¡un solo **0,001%** de los cursos se **realmente pagan** en mi colección!
+¡Afortunadamente, puedes obtener más de lo que recolecté en 4 años, en una cuestión de
+semanas! 🙌🏻
 
-### 4. Why did I create this?
+### 4. ¿Por qué lo creé?
 
 It used to be my daily habit to redeem courses and it was an extremely tedious
-task that took around 15 minutes, for 10 courses. And then I suddenly got the
-idea to automate it, after I found the automation course mentioned above. I bet,
-it will save your precious time too! :)
+task that took around 15 minutes, for 10 courses. Y entonces de repente tuve la idea
+de automatizarlo, después de encontrar el curso de automatización mencionado anteriormente. ¡Apuesto,
+te ahorrará tu precioso tiempo también! :)
 
-### 5. Udemy has detected that I'm using automation tools to browse the website! What should I do?
+### 5. ¡Udemy ha detectado que estoy usando herramientas de automatización para navegar por el sitio web! ¿Qué debo hacer?
 
-![](https://i.imgur.com/pwseilE.jpg) Relax! This happens when you run the script
-several times in a short interval of time. Solve the captcha, close the browser,
-and simply re-run the script. Easy peasy lemon squeezy! 🍋🙃 <br /><br />
+![](https://i.imgur.com/pwseilE.jpg) Relax! Esto sucede cuando ejecutas el script
+varias veces en un corto intervalo de tiempo. Resuelve el captcha, cierra el navegador,
+y simplemente vuelve a ejecutar el script. ¡Fácil exprimimiento de limón campesino! 🍋🙃 <br /><br />
 
-### 6. The code compiles successfully but it's taking too long to work! IS there any way to fix that?
+### 6. El código se compila con éxito, ¡pero está tardando demasiado en funcionar! ¿Hay alguna forma de arreglarlo?
 
-Since we are heavily dependent on a third-party site to retrieve coupons links,
-there may be issues when the site is down. Needless to mention the connectivity
-issues too. If everything is working fine, you can see the courses being
-retrieved in the Python console/shell, which may take a while.
+Puesto que dependemos en gran medida de un sitio de terceros para recuperar enlaces de cupones,
+puede haber problemas cuando el sitio está caído. No hace falta mencionar los problemas de conectividad
+también. Si todo funciona bien, puedes ver los cursos obtenidos
+en la consola/shell de Python, que pueden tardar un tiempo.
 
-### 7. Which is the best way to run the script?
+### 7. ¿Cuál es la mejor manera de ejecutar el script?
 
-It is recommended to run the script using Python's IDLE IDE.
+Se recomienda ejecutar el script usando el IDLE IDE de Python.
 
-**Pro-tip:** Create a batch file, to launch the script instantly, using these
-instructions: https\://datatofish.com/batch-python-script/
+**Pro-tip:** Crea un archivo batch para ejecutar el script al instante, usando estas instrucciones
+: https\://datatofish.com/batch-python-script/
 
-### 8. Which branch to commit against?
+### 8. ¿Qué rama cometer en contra?
 
-Pull request should be made on "develop" branch.
+Pull request should be made on "develop".
 
-### 9. What's the roadmap?
+### 9. ¿Cuál es el mapa de ruta?
 
-Take a look at our
-[Roadmap here](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/projects/1)
-and help us on what you want or talk to us about your proposed changes.
+Echa un vistazo a nuestra
+[Hoja de ruta aquí](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/projects/1)
+y ayúdanos en lo que quieras o habla con nosotros sobre tus cambios propuestos.
 
 ***
