@@ -1,56 +1,56 @@
-# Install all the requirements by running requirements.py in IDLE or follow the alternate instructions at
+# Instalar todos los requisitos ejecutando requirements.py en IDLE o seguir las instrucciones alternativas en
 
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+desde selenium importar webdriver
+desde webdriver_manager.chrome importar ChromeDriverManager
 
-from core import Settings
-from core.utils import redeem_courses
+desde la configuración principal de importación
+desde core.utils importar redeem_courses
 
 settings = Settings()
-print('1. IT software')
-print('2. Development')
-print('3. Finance Accounting')
-print('4. Design')
-print('5. Business')
+print('1. Software IT')
+print('2. Desarrollo')
+print('3. Contabilidad financiera')
+print('4. Diseño)
+print('5. Negocios)
 print('6. Marketing')
-print('7. Health and Fitness')
-print('8. Office Productivity')
-print('9. Photography')
-print('10. Personal Development')
-print('11. Teaching and Academics')
-print('99. All Courses')
-choice = input('Please select what category you want? :')
-chrome_options = None
+print('7. Salud y Fitness ')
+print('8. Productividad de oficina')
+print('9. Fotografía')
+print('10. Desarrollo personal')
+print('11. Enseñanza y académicos')
+print('99. Todos los cursos')
+choice = input('Por favor seleccione qué categoría quiere? :')
+chrome_options = Ninguna
 if settings.is_ci_build:
-    from selenium.webdriver.chrome.options import Options
+    desde las opciones de importación de selenium.webdriver.chrome.options
 
-    # Having the user-agent with Headless param was always leading to robot check
-    user_agent = (
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 "
+    # Tener el agente de usuario con el parámetro Headless siempre llevaba a la comprobación de robot
+    usuario_agente = (
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/85.0.4183.102 "
         "Safari/537.36")
-    chrome_options = Options()
-    # We need to run headless when using github CI
+    chrome_options = Opciones()
+    # Necesitamos correr sin cabeza cuando usamos github CI
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("user-agent={0}".format(user_agent))
     chrome_options.add_argument("--window-size=1325x744")
-    print("This is a CI run")
+    print("Esto es una ejecución IC")
 
 driver = webdriver.Chrome(ChromeDriverManager().install(),
                           options=chrome_options)
 
-# Maximizes the browser window since Udemy has a responsive design and the code only works
+# Maximiza la ventana del navegador ya que Udemy tiene un diseño receptivo y el código sólo funciona
 driver.maximize_window()
-# in the maximized layout
+# en el diseño maximizado
 
-try:
+intentar:
     redeem_courses(driver, settings, choice)
     if settings.is_ci_build:
-        print("We have attempted to subscribe to 1 udemy course")
+        print("Hemos intentado suscribirnos a 1 curso de udemy")
         print("Ending test")
-except KeyboardInterrupt:
-    print("Exiting the script")
-except Exception as e:
+excepto KeyboardInterrupt:
+    print("Salir del script")
+excepto excepción como:
     print("Error: {}".format(e))
-finally:
-    print("Closing browser")
+finalmente:
+    print("Cerrando navegador")
     driver.quit()
