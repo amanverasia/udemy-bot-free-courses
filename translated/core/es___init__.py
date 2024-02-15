@@ -1,3 +1,3 @@
-from .settings import Settings
-from .tutorialbar import TutorialBarScraper
-from .udemy import UdemyActions
+desde la configuración de importación de .settings
+desde .tutorialbar importar TutorialBarScraper
+desde .udemy importar Udemy Actions
