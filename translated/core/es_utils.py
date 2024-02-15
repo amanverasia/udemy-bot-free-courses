@@ -1,35 +1,35 @@
-from selenium.webdriver.remote.webdriver import WebDriver
+desde selenium.webdriver.remote.webdriver importar WebDriver
 
-from core import Settings
-from core import TutorialBarScraper
-from core import UdemyActions
+desde la configuración principal de importación
+desde el núcleo importar TutorialBarScraper
+desde la importación principal de UdemyActions
 
 
-def redeem_courses(driver: WebDriver, settings: Settings,choice):
+def redeem_courses(driver: WebDriver, ajustes: Ajustes,choice):
     """
-    Method to scrape courses from tutorialbar.com and enroll in them on udemy
+    Método para extraer cursos de tutorialbar.com y matricularse en ellos en udemy
 
     :return:
     """
     tb_scraper = TutorialBarScraper()
     udemy_actions = UdemyActions(driver, settings)
-    udemy_actions.login()  # login once outside while loop
-    while True:
-        udemy_course_links = tb_scraper.run(choice)
+    udemy_actions.login() # iniciar sesión una vez fuera mientras el bucle
+    mientras verdadera:
+        udemy_course_links = tb_scraper.run(elección)
 
-        for course_link in udemy_course_links:
-            try:
+        para curse_link en udemy_course_links:
+            intentar:
                 udemy_actions.redeem(course_link)
                 if settings.is_ci_build:
-                    return
-            except KeyboardInterrupt:
-                raise
-            except Exception:
+                    volver
+            excepto KeyboardInterrupt:
+                subir
+            excepto excepción:
                 if settings.is_ci_build:
-                    return
-                print(
-                    "Unable to enroll for this course either because you have already claimed it or the browser "
-                    "window has been closed!")
+                    volver
+                impresión(
+                    "No se puede inscribir en este curso porque ya lo has reclamado o el navegador"
+                    "ventana ha sido cerrada!")
 
-        print(
-            "Moving on to the next page of the course list on tutorialbar.com")
+        impresión(
+            "Pasando a la siguiente página de la lista de cursos en tutorialbar.com")
