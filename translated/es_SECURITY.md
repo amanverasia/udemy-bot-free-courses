@@ -1,21 +1,21 @@
-# Security Policy
+# Política de seguridad
 
-## Supported Versions
+## Versiones soportadas
 
-All 0.x versions are supported. Master branch is also supported. Develop branch
-is unsupported.
+Todas las versiones 0.x son compatibles. La rama maestra también está soportada. La rama de desarrollo
+no es compatible.
 
-| Version | Supported                                                    |
-| ------- | ------------------------------------------------------------ |
-| 0.x     | :white_check_mark: |
-| Master  | :white_check_mark: |
-| Develop | :x:                                                          |
+| Versión     | Soportado                                                    |
+| ----------- | ------------------------------------------------------------ |
+| 0,x         | :white_check_mark: |
+| Maestro     | :white_check_mark: |
+| Desarrollar | :x:                                                          |
 
-## Reporting a Vulnerability
+## Reportando una vulnerabilidad
 
-If you do find a security vulnerability please contact
-[Aapatre](https://twitter.com/Antariksh_Patre) or
-[Nirjhor](https://twitter.com/Nirjhor) on twitter. Send a DM.
+Si encuentras una vulnerabilidad de seguridad, ponte en contacto con
+[Aapatre](https://twitter.com/Antariksh_Patre) o
+[Nirjhor](https://twitter.com/Nirjhor) en twitter. Enviar un MD.
 
 If your reported vulnerability needs further action from your end we will
 contact you within 24 hours. If any further action is not needed, we will try to
