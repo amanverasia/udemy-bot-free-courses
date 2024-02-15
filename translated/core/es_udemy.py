@@ -1,89 +1,89 @@
-import time
+importar tiempo
 
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+desde selenium.common.exceptions importar NoSuchElementException
+desde selenium.webdriver.common.by importar Por
+de selenium.webdriver.support importar expected_conditions como CE
+desde selenium.webdriver.support.ui importar WebDriverWait
 
 
-class UdemyActions:
+clases UdemyActions:
     """
-    Contains any logic related to interacting with udemy website
+    Contiene cualquier lógica relacionada con la interacción con el sitio web de udemy
     """
 
     DOMAIN = "https://www.udemy.com"
 
-    def __init__(self, driver, settings):
+    def __init__(autor, driver, ajustes):
         self.driver = driver
-        self.settings = settings
+        self.settings = ajustes
         self.logged_in = False
 
-    def login(self) -> None:
+    def login(self) -> Ninguno:
         """
-        Login to your udemy account
+        Inicia sesión en tu cuenta de udemy
 
         :return: None
         """
-        if not self.logged_in:
+        si no self.logged_in:
             self.driver.get(f"{self.DOMAIN}/join/login-popup/")
 
             email_element = self.driver.find_element_by_name("email")
             email_element.send_keys(self.settings.email)
 
-            password_element = self.driver.find_element_by_name("password")
-            password_element.send_keys(self.settings.password)
+            password_element = self.driver.find_element_by_name("contraseña")
+            contraseña_element.send_keys(self.settings.password)
 
-            self.driver.find_element_by_name("submit").click()
-            self.logged_in = True
+            self.driver.find_element_by_name("Enviado").click()
+            self.logged_in = Verdadero
 
-    def redeem(self, url: str) -> None:
+    def redem(self, url: str) -> Ninguno:
         """
-        Redeems the course url passed in
+        Canjea la url del curso pasada en
 
-        :param str url: URL of the course to redeem
+        :param str url: URL del curso a canjear
         :return: None
         """
         self.driver.get(url)
-        print("Trying to Enroll for: " + self.driver.title)
+        print("Intentando inscribirse: " + self.driver.title)
 
-        # If the user has configured languages check it is a supported option
+        # Si el usuario ha configurado los idiomas, compruebe que es una opción soportada
         if self.settings.languages:
             locale_xpath = "//div[@data-purpose='lead-course-locale']"
             element_text = (WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, locale_xpath))).text)
+                EC.presence_of_element_located((por.XPATH, locale_xpath))).text)
 
-            if element_text not in self.settings.languages:
-                print("Course language not wanted: {}".format(element_text))
-                return
+            si element_text no está en self.settings.languages:
+                print("Idioma del curso no deseado: {}".format(element_text))
+                volver
 
-        # Enroll Now 1
+        # Inscribirse ahora 1
         buy_course_button_xpath = "//button[@data-purpose='buy-this-course-button']"
         element_present = EC.presence_of_element_located(
-            (By.XPATH, buy_course_button_xpath))
+            (Por.XPATH, buy_course_button_xpath))
         WebDriverWait(self.driver, 10).until(element_present).click()
 
         enroll_button_xpath = "//*[@class='udemy pageloaded']/div[1]/div[2]/div/div/div/div[2]/form/div[2]/div/div[4]/button"
-        # Enroll Now 2
+        # Inscribirse ahora 2
         element_present = EC.presence_of_element_located((
-            By.XPATH,
+            Por.XPATH,
             enroll_button_xpath,
         ))
         WebDriverWait(self.driver, 10).until(element_present)
 
-        # Check if zipcode exists before doing this
-        if self.settings.zip_code:
-            # Assume sometimes zip is not required because script was originally pushed without this
-            try:
+        # Comprueba si el código postal existe antes de hacer esto
+        si self.settings.zip_code:
+            # Supongamos que a veces zip no es necesario porque el script fue originalmente empujado sin esto
+            intentar:
                 zipcode_element = self.driver.find_element_by_id(
-                    "billingAddressSecondaryInput")
-                zipcode_element.send_keys(self.settings.zip_code)
+                    "dirección de billingSegundoEntrada")
+                código zipcode_element.send_keys(self.settings.zip_code)
 
-                # After you put the zip code in, the page refreshes itself and disables the enroll button for a split
-                # second.
+                # Después de poner el código postal, la página se actualiza y desactiva el botón de inscripción para una división
+                # segundo.
                 time.sleep(1)
-            except NoSuchElementException:
-                pass
+            excepto NochElementException:
+                pasar
 
-        udemy_enroll_element_2 = self.driver.find_element_by_xpath(
-            enroll_button_xpath)  # Udemy
+        udemy_enroll_element_2 = self.driver.find_element_por_xpath(
+            enroll_button_xpath) # Udemy
         udemy_enroll_element_2.click()
